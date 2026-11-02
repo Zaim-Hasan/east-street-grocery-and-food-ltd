@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Street Grocery And Food Ltd | London Supermarket & Food Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uk: {
+                            blue: '#1d4ed8',
+                            navy: '#0f172a',
+                            emerald: '#059669',
+                            amber: '#d97706',
+                            red: '#dc2626'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .uk-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar (UK Style) -->
+    <div class="bg-uk-navy text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-inner flex justify-center items-center gap-4">
+        <span><i class="fa-solid fa-truck-fast text-uk-amber mr-2"></i> Free Local London Delivery on Orders Over £35</span>
+        <span class="hidden sm:inline">|</span>
+        <span class="hidden sm:inline"><i class="fa-solid fa-phone text-uk-amber mr-1"></i> Call Us: <a href="tel:+447877304817" class="underline hover:text-uk-amber">+44 7877 304817</a></span>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl uk-gradient flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-blue-500/20">
+                        ES
+                    </div>
+                    <div>
+                        <a href="#" class="text-xl font-extrabold text-slate-900 tracking-tight block leading-tight">
+                            East Street Grocery
+                        </a>
+                        <span class="text-xs text-slate-500 font-semibold tracking-wider uppercase">London, SE17 2SX</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="#hero" class="hover:text-uk-blue transition">Home</a>
+                    <a href="#categories" class="hover:text-uk-blue transition">Aisles & Categories</a>
+                    <a href="#products" class="hover:text-uk-blue transition">Popular Products</a>
+                    <a href="#about" class="hover:text-uk-blue transition">About Store</a>
+                    <a href="#contact" class="hover:text-uk-blue transition">Contact & Location</a>
+                </nav>
+
+                <!-- Actions: Cart & Quick Order -->
+                <div class="flex items-center space-x-4">
+                    <button id="cartBtn" class="relative p-3 text-slate-700 hover:text-uk-blue focus:outline-none transition bg-slate-100 hover:bg-slate-200 rounded-full">
+                        <i class="fa-solid fa-basket-shopping text-lg text-uk-blue"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-uk-red text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">0</span>
+                    </button>
+                    <a href="https://wa.me/447877304817" target="_blank" class="hidden sm:inline-flex items-center accent-gradient text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition shadow-md shadow-emerald-600/20 hover:opacity-95">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Order
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- UK Hero Banner -->
+    <section id="hero" class="relative uk-gradient text-white py-16 lg:py-24 overflow-hidden">
+        <!-- Glow effects -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6">
+                <span class="inline-block bg-uk-amber text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                    <i class="fa-solid fa-location-dot mr-1"></i> 346 East Street, London, SE17 2SX
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+                    Fresh British Groceries, Daily Foods & Essentials
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Your neighborhood London supermarket offering farm-fresh produce, traditional British bakery goods, organic foods, and daily household staples.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#products" class="accent-gradient text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition duration-200">
+                        Shop Groceries Now
+                    </a>
+                    <a href="#about" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 backdrop-blur-sm transition">
+                        Visit Our Store
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 p-2 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="UK Supermarket Grocery Display" class="rounded-2xl object-cover w-full max-w-md h-80 sm:h-96">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supermarket Highlights Bar -->
+    <section class="py-10 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-blue-50/50 border border-blue-100">
+                <div class="w-12 h-12 rounded-xl bg-uk-blue text-white flex items-center justify-center text-xl shadow-md">
+                    <i class="fa-solid fa-carrot"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Fresh Produce</h4>
+                    <p class="text-xs text-slate-500">Locally Sourced Vegetables</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
+                <div class="w-12 h-12 rounded-xl bg-uk-emerald text-white flex items-center justify-center text-xl shadow-md">
+                    <i class="fa-solid fa-bread-slice"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">British Bakery</h4>
+                    <p class="text-xs text-slate-500">Fresh Daily Breads & Pastries</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100">
+                <div class="w-12 h-12 rounded-xl bg-uk-amber text-white flex items-center justify-center text-xl shadow-md">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Tea & Pantry</h4>
+                    <p class="text-xs text-slate-500">Classic British Teas & Staples</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-rose-50/50 border border-rose-100">
+                <div class="w-12 h-12 rounded-xl bg-uk-red text-white flex items-center justify-center text-xl shadow-md">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">London Delivery</h4>
+                    <p class="text-xs text-slate-500">Fast SE17 & Surrounding Areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Category & Showcase Section -->
+    <section id="categories" class="py-14 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-slate-900">Explore UK Supermarket Aisles</h2>
+                <p class="text-slate-600 text-sm mt-2">Filter by category to find your favorite British groceries and household essentials.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="filterContainer">
+                <button onclick="filterCategory('all')" class="filter-btn active uk-gradient text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-md transition">All Products</button>
+                <button onclick="filterCategory('produce')" class="filter-btn bg-white text-slate-700 border border-slate-200 font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-blue-50 transition">Fresh Produce</button>
+                <button onclick="filterCategory('bakery')" class="filter-btn bg-white text-slate-700 border border-slate-200 font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-blue-50 transition">British Bakery</button>
+                <button onclick="filterCategory('pantry')" class="filter-btn bg-white text-slate-700 border border-slate-200 font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-blue-50 transition">Tea & Pantry</button>
+                <button onclick="filterCategory('dairy')" class="filter-btn bg-white text-slate-700 border border-slate-200 font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-blue-50 transition">Dairy & Chilled</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productGrid">
+                <!-- Dynamically inserted via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Store Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-uk-blue font-bold text-sm uppercase tracking-wider">About East Street Grocery And Food Ltd</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-4">Your Trusted London Food Store at 346 East Street</h2>
+                    <p class="text-slate-600 mb-4 leading-relaxed">
+                        East Street Grocery And Food Ltd is proud to serve the London community from our convenient location at 346 East Street (SE17 2SX). We curate a wide selection of top-grade British groceries, fresh farm produce, organic bakery items, and everyday household essentials.
+                    </p>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Whether you are dropping by our storefront or placing an online order via WhatsApp or phone, our team guarantees exceptional quality and friendly neighborhood service.
+                    </p>
+                    <div class="space-y-3 font-semibold text-slate-800 text-sm">
+                        <div class="flex items-center"><i class="fa-solid fa-circle-check text-uk-emerald mr-3"></i> Premium Quality British & International Foods</div>
+                        <div class="flex items-center"><i class="fa-solid fa-circle-check text-uk-emerald mr-3"></i> Daily Fresh Deliveries & Sourcing</div>
+                        <div class="flex items-center"><i class="fa-solid fa-circle-check text-uk-emerald mr-3"></i> Convenient Click & Collect or Local Delivery</div>
+                    </div>
+                </div>
+
+                <!-- Business Details Box (UK Format) -->
+                <div class="uk-gradient text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <h3 class="text-xl font-bold mb-6 border-b border-slate-700 pb-3 text-uk-amber">Store Information</h3>
+                    <ul class="space-y-5 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-store text-uk-amber mt-1 mr-4 w-5 text-lg"></i>
+                            <div>
+                                <span class="font-semibold block text-slate-300 text-xs uppercase tracking-wider">Company Name</span>
+                                <span class="text-white font-medium text-base">East Street Grocery And Food Ltd</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-uk-amber mt-1 mr-4 w-5 text-lg"></i>
+                            <div>
+                                <span class="font-semibold block text-slate-300 text-xs uppercase tracking-wider">Registered Address</span>
+                                <span class="text-white font-medium">346 East Street, London, England, SE17 2SX</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-phone text-uk-amber mt-1 mr-4 w-5 text-lg"></i>
+                            <div>
+                                <span class="font-semibold block text-slate-300 text-xs uppercase tracking-wider">Phone Number</span>
+                                <a href="tel:+447877304817" class="text-uk-amber font-bold text-base hover:underline">+44 7877 304817</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-envelope text-uk-amber mt-1 mr-4 w-5 text-lg"></i>
+                            <div>
+                                <span class="font-semibold block text-slate-300 text-xs uppercase tracking-wider">Business Email</span>
+                                <a href="mailto:xinioushossainxipa247@yahoo.com" class="text-uk-amber hover:underline">xinioushossainxipa247@yahoo.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Order Section -->
+    <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Order & Inquire Directly</h2>
+            <p class="text-slate-600 text-sm mb-8">Reach out to our London store via phone or WhatsApp for quick orders and home delivery inquiries.</p>
+            
+            <div class="grid sm:grid-cols-2 gap-6 text-left">
+                <a href="tel:+447877304817" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-blue-100 text-uk-blue rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-semibold block uppercase">Call London Store</span>
+                        <span class="text-lg font-extrabold text-slate-900">+44 7877 304817</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/447877304817" target="_blank" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-emerald-100 text-uk-emerald rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-semibold block uppercase">WhatsApp Chat</span>
+                        <span class="text-lg font-extrabold text-slate-900">Send Message</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">East Street Grocery And Food Ltd</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Your premier London supermarket and food store located at 346 East Street, London, SE17 2SX.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#hero" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#categories" class="hover:text-white transition">Grocery Aisles</a></li>
+                    <li><a href="#about" class="hover:text-white transition">About Store</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-3">Store Details</h4>
+                <p class="text-sm">346 East Street, London, England, SE17 2SX</p>
+                <p class="text-sm mt-1">Phone: +44 7877 304817</p>
+                <p class="text-sm mt-1">Email: xinioushossainxipa247@yahoo.com</p>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 text-center text-xs text-slate-500 pt-6">
+            &copy; 2026 East Street Grocery And Food Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 overflow-hidden z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 uk-gradient text-white flex justify-between items-center">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping"></i> Shopping Basket
+                    </h3>
+                    <button onclick="toggleCart()" class="text-white hover:text-slate-200">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic Cart Content -->
+                </div>
+                <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+                    <div class="flex justify-between font-bold text-slate-900 text-lg">
+                        <span>Total Amount:</span>
+                        <span id="cartTotal" class="text-uk-blue">£ 0.00</span>
+                    </div>
+                    <button onclick="checkoutWhatsApp()" class="w-full accent-gradient text-white py-3.5 rounded-xl font-bold flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30 transition hover:opacity-95">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Order via WhatsApp (£)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeQuickView()"></div>
+        <div class="bg-white rounded-3xl max-w-lg w-full z-10 overflow-hidden shadow-2xl relative p-6 space-y-4">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <img id="qvImage" src="" alt="Product Image" class="w-full h-56 object-cover rounded-2xl">
+            <div>
+                <span id="qvCategory" class="text-xs font-bold text-uk-blue uppercase tracking-wider"></span>
+                <h3 id="qvTitle" class="text-xl font-bold text-slate-900 mt-1"></h3>
+                <p id="qvPrice" class="text-xl font-extrabold text-uk-emerald mt-1"></p>
+                <p id="qvDescription" class="text-sm text-slate-600 mt-2 leading-relaxed"></p>
+            </div>
+            <button id="qvAddToCartBtn" class="w-full uk-gradient text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-blue-500/20 hover:opacity-95">Add to Basket</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // UK Grocery Product Catalog with UK-matched items and images (£ currency)
+        const products = [
+            {
+                id: 1,
+                name: "British Farm Fresh Organic Carrots (1kg)",
+                category: "produce",
+                price: 1.25,
+                image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80",
+                description: "Crisp, sweet, and locally harvested British organic carrots, perfect for daily cooking."
+            },
+            {
+                id: 2,
+                name: "Fresh British Strawberries Punnet (400g)",
+                category: "produce",
+                price: 2.50,
+                image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80",
+                description: "Juicy, hand-picked sweet strawberries grown in UK sunshine."
+            },
+            {
+                id: 3,
+                name: "Traditional Artisan Sourdough Loaf",
+                category: "bakery",
+                price: 2.80,
+                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+                description: "Freshly baked crusty sourdough loaf with a soft texture from our local bakery partners."
+            },
+            {
+                id: 4,
+                name: "Classic British Butter Croissants (Pack of 4)",
+                category: "bakery",
+                price: 2.20,
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80",
+                description: "Flaky, buttery French-style croissants baked fresh every morning."
+            },
+            {
+                id: 5,
+                name: "Twinings English Breakfast Tea Bags (100s)",
+                category: "pantry",
+                price: 4.50,
+                image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+                description: "Rich, robust, and full-bodied traditional British black tea blend."
+            },
+            {
+                id: 6,
+                name: "H.J. Heinz Classic Tomato Ketchup (460g)",
+                category: "pantry",
+                price: 3.20,
+                image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80",
+                description: "The nation's favorite tomato ketchup made with sun-ripened tomatoes."
+            },
+            {
+                id: 7,
+                name: "British Semi-Skimmed Fresh Milk (2 Litres / 4 Pints)",
+                category: "dairy",
+                price: 1.65,
+                image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80",
+                description: "100% British pasteurized fresh semi-skimmed milk sourced from Red Tractor farms."
+            },
+            {
+                id: 8,
+                name: "Mature Cheddar Cheese Block (400g)",
+                category: "dairy",
+                price: 3.75,
+                image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80",
+                description: "Rich and deeply flavorful matured British cheddar cheese."
+            }
+        ];
+
+        let cart = [];
+
+        // Render Product Catalog
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = items.map(product => `
+                <div class="product-card bg-white rounded-3xl border border-slate-100 overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden group">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-slate-800 p-2 rounded-full shadow hover:bg-white transition text-xs font-semibold px-3 flex items-center gap-1">
+                                <i class="fa-regular fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-bold text-uk-blue uppercase tracking-wider">${product.category}</span>
+                            <h3 class="font-bold text-slate-900 text-base mt-1 line-clamp-1">${product.name}</h3>
+                            <p class="text-xs text-slate-500 mt-1 line-clamp-2">${product.description}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 flex items-center justify-between mt-2">
+                        <span class="text-lg font-extrabold text-uk-emerald">£${product.price.toFixed(2)}</span>
+                        <button onclick="addToCart(${product.id})" class="accent-gradient text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition flex items-center space-x-1 hover:opacity-95">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Category Logic
+        function filterCategory(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('uk-gradient', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('uk-gradient', 'text-white');
+
+            if (cat === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // Cart Operations
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCart();
+            toggleCart(true);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        function changeQty(productId, delta) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `£${totalPrice.toFixed(2)}`;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
+                        <p class="text-sm">Your shopping basket is empty.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="flex items-center space-x-4 border-b border-slate-100 pb-3">
+                    <img src="${item.image}" class="w-16 h-16 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm text-slate-900">${item.name}</h4>
+                        <span class="text-xs text-uk-emerald font-bold">£${item.price.toFixed(2)}</span>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center font-bold text-xs">-</button>
+                            <span class="text-xs font-bold">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center font-bold text-xs">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 text-xs p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleCart(open = null) {
+            const drawer = document.getElementById('cartDrawer');
+            if (open === true) {
+                drawer.classList.remove('hidden');
+            } else if (open === false) {
+                drawer.classList.add('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        // Quick View Modal Controls
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            document.getElementById('qvImage').src = product.image;
+            document.getElementById('qvCategory').textContent = product.category;
+            document.getElementById('qvTitle').textContent = product.name;
+            document.getElementById('qvPrice').textContent = `£${product.price.toFixed(2)}`;
+            document.getElementById('qvDescription').textContent = product.description;
+            
+            const btn = document.getElementById('qvAddToCartBtn');
+            btn.onclick = function() {
+                addToCart(product.id);
+                closeQuickView();
+            };
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        // WhatsApp Checkout Formatting (£ currency)
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Please add items to your basket first!");
+                return;
+            }
+
+            let message = "Hello East Street Grocery And Food Ltd, I would like to place an order:\n\n";
+            cart.forEach(item => {
+                message += `• ${item.name} (x${item.qty}) - £${(item.price * item.qty).toFixed(2)}\n`;
+            });
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            message += `\n*Total Amount: £${total.toFixed(2)}*\n`;
+            message += `\nPlease confirm home delivery to London SE17 or store collection.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/447877304817?text=${encodedMessage}`, '_blank');
+        }
+
+        document.getElementById('cartBtn').addEventListener('click', () => toggleCart());
+
+        // Initial Product Load
+        renderProducts(products);
+    </script>
+</body>
+</html>
